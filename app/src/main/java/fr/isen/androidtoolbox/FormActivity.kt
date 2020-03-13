@@ -79,11 +79,7 @@ class FormActivity : AppCompatActivity() {
 
 
             val birth = json.get("date de naissance").toString()
-            var date =(
-                birth.substring(1, 2).toInt();
-                birth.substring(4, 5).toInt();
-                birth.substring(7, 10).toInt()
-            )
+           // var date =(birth.substring(1, 2).toInt(); birth.substring(4, 5).toInt() ; birth.substring(7, 10).toInt())
             var age = Calendar.YEAR - birth.substring(7, 10).toInt()
             if (Calendar.MONTH < birth.substring(4, 5).toInt() || Calendar.MONTH == birth.substring(4, 5).toInt() && Calendar.DAY_OF_MONTH < birth.substring(4, 5).toInt())
                 age -= 1;

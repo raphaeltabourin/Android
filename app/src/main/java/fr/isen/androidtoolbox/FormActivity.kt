@@ -13,7 +13,6 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.time.DateTimeException
 import java.time.Duration
-
 import java.time.Duration.between
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -52,7 +51,7 @@ class FormActivity : AppCompatActivity() {
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
                 val sdf = SimpleDateFormat("dd/mm/yyyy")
-                birthDate.text = sdf.format(cal.time)
+               // birthDate.text = sdf.format(cal.time)
 
             }
 
@@ -80,9 +79,9 @@ class FormActivity : AppCompatActivity() {
 
 
             val birth = json.get("date de naissance").toString()
-            var date =
-                birth.substring(1, 2).toInt(),
-                birth.substring(4, 5).toInt(),
+            var date =(
+                birth.substring(1, 2).toInt();
+                birth.substring(4, 5).toInt();
                 birth.substring(7, 10).toInt()
             )
             var age = Calendar.YEAR - birth.substring(7, 10).toInt()

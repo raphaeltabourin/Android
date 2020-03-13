@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                    editor.putString(Pw, password.text.toString())
 
                     editor.apply()
-                   finish()
+
                 } else
                     Toast.makeText(this, "autentification ratée", Toast.LENGTH_SHORT).show()
 

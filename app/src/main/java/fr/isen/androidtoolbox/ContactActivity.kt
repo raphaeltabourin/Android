@@ -20,18 +20,19 @@ class ContactActivity : AppCompatActivity() {
             intent.type = "image/*"
             startActivityForResult(intent, REQUEST_CODE_GALLERY)
         }
-        override fun onActivityResult(requestCode: Int,resultCode: Int,data: Intent?){
-            super.onActivityResult(requestCode,resultCode,data)
-            data?.data.let {
-                
-            ContactButton.setImageURI(it)
-            }
-        }
+
 
          contactRecycler.adapter = ContactAdapter(listOf<String>("Juliette,Melvin"))
 
 
 
+    }
+    override fun onActivityResult(requestCode: Int,resultCode: Int,data: Intent?){
+        super.onActivityResult(requestCode,resultCode,data)
+        data?.data.let {
+
+            ContactButton.setImageURI(it)
+        }
     }
 
     companion object {

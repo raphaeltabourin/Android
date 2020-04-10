@@ -43,26 +43,29 @@ class FormActivity : AppCompatActivity() {
             File(cacheDir.absolutePath + "save.json").writeText(jsonString)
 
         }
-        val cal : Calendar = Calendar.getInstance()
+        val cal = Calendar.getInstance()
         val dateSetListener =
-            DatePickerDialog.OnDateSetListener{ datePicker : DatePicker, year : Int, monthOfYear : Int, dayOfMonth : Int ->
+            DatePickerDialog.OnDateSetListener{ datePicker: DatePicker, year: Int, monthofYear: Int, dayOfMonth: Int ->
                 cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.MONTH, monthofYear)
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-
-                val sdf = SimpleDateFormat("dd/mm/yyyy")
-               // birthDate.text = sdf.format(cal.time)
-
+                val formater = SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH)
+                birthDate.text = formater.format(cal.time)//"$dayOfMonth/$monthofYear/$year"
             }
-
-        fun showDatePicker(dateSetListener:DatePickerDialog.OnDateSetListener){
-            val cal = Calendar.getInstance()
-            DatePickerDialog(this@FormActivity, dateSetListener,
+        fun showDatePicker(dateSetListener: DatePickerDialog.OnDateSetListener, cal: Calendar) {
+            DatePickerDialog(
+                this@FormActivity,
+                dateSetListener,
                 cal.get(Calendar.YEAR),
                 cal.get(Calendar.MONTH),
                 cal.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
+        birthDate.setOnClickListener{
+            showDatePicker(dateSetListener , cal)
+        }
+
+
         get.setOnClickListener() {
 
 
@@ -80,9 +83,9 @@ class FormActivity : AppCompatActivity() {
 
             val birth = json.get("date de naissance").toString()
            // var date =(birth.substring(1, 2).toInt(); birth.substring(4, 5).toInt() ; birth.substring(7, 10).toInt())
-            var age = Calendar.YEAR - birth.substring(7, 10).toInt()
-            if (Calendar.MONTH < birth.substring(4, 5).toInt() || Calendar.MONTH == birth.substring(4, 5).toInt() && Calendar.DAY_OF_MONTH < birth.substring(4, 5).toInt())
-                age -= 1;
+            val cal = Calendar.getInstance()
+
+            val age = cal.get(Calendar.YEAR) - birth.substringAfterLast("/").toInt();
 
             alertDialogBuilder.setMessage(
                 "Nom :" + json.get("nom").toString() + "\n" + "Prénom :" + json.get(

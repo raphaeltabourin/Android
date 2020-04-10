@@ -11,14 +11,14 @@ import android.content.SharedPreferences
 var sharedPreferences: SharedPreferences? = null
 private val PREF_NAME = "authentification_File"
 private var PRIVATE_MODE = 0
-private val Id = "login"
+private val user = "login"
 private val Pw = "password"
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        if (sharedPref.getString(Id,"")=="admin" && sharedPref.getString(Pw,"")=="123") {
+        if (sharedPref.getString(user,"")=="admin" && sharedPref.getString(Pw,"")=="123") {
 
             val intent = Intent(this, HomeActivity::class.java) //f
             startActivity(intent)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, HomeActivity::class.java) //f
                     startActivity(intent)
                     val editor = sharedPref.edit()
-                  editor.putString(Id, login.text.toString())
+                  editor.putString(user, login.text.toString())
                     editor.apply()
                    editor.putString(Pw, password.text.toString())
 

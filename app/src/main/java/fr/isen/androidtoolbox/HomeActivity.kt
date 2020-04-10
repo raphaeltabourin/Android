@@ -17,7 +17,7 @@ class HomeActivity : AppCompatActivity() {
         cycleButton.setOnClickListener(){
             val intent = Intent(this, CycleActivity::class.java) //f
             startActivity(intent)
-            finish()
+
             }
         logout.setOnClickListener(){
             val intent = Intent(this, MainActivity::class.java) //f
@@ -25,18 +25,25 @@ class HomeActivity : AppCompatActivity() {
            val editor=sharedPref.edit()
             editor.clear()
             editor.apply()
-            finish()
+
 
         }
         set.setOnClickListener(){
             val intent = Intent(this, FormActivity::class.java) //f
             startActivity(intent)
-            finish()
         }
-            permissionBoutton.setOnClickListener(){
-            val intent = Intent(this, ContactActivity::class.java) //f
+        BLEButton.setOnClickListener(){
+            val intent = Intent(this, BLEScanActivity::class.java) //f
             startActivity(intent)
-            finish()
+        }
+            permissionBoutton.setOnClickListener() {
+                val intent = Intent(this, ContactActivity::class.java) //f
+                startActivity(intent)
+            }
+        webServicesButton.setOnClickListener(){
+                    val intent = Intent(this, WebServicesActivity::class.java) //f
+                    startActivity(intent)
+
         }
     }
 }

@@ -85,14 +85,29 @@ class FormActivity : AppCompatActivity() {
            // var date =(birth.substring(1, 2).toInt(); birth.substring(4, 5).toInt() ; birth.substring(7, 10).toInt())
             val cal = Calendar.getInstance()
 
-            val age = cal.get(Calendar.YEAR) - birth.substringAfterLast("/").toInt();
+            var age = cal.get(Calendar.YEAR) - birth.substringAfterLast("/").toInt();
+            if(cal.get(Calendar.MONTH) < birth.substringAfter("/").substringBefore("/").toInt() ){
+                age=age - 1
+            }
+            if(cal.get(Calendar.MONTH) == birth.substringAfter("/").substringBefore("/").toInt() && cal.get(Calendar.DAY_OF_MONTH) < birth.substringBefore("/").toInt() ){
+                age= age - 1
+            }
 
             alertDialogBuilder.setMessage(
                 "Nom :" + json.get("nom").toString() + "\n" + "Prénom :" + json.get(
                     "prenom"
-                ).toString() + "\n" + "Date de Naissance :" + json.get("date de naissance").toString() + "\n" + "age" + age.toString()
+                ).toString() + "\n" + "Date de Naissance :" + json.get("date de naissance").toString() + "\n" + "age : " + age.toString()
             )
             alertDialogBuilder.show()
+            if( age >= 18){
+                alertDialogBuilder.setMessage(
+                    "vous avez plus de 18 ans !\n" + json.get("prenom").toString() + " " +  json.get(
+                        "nom"
+                    ).toString() + "Venez découvrir lesquels de vos voisins sont les plus coquins !"
+                )
+                alertDialogBuilder.show()
+            }
+
 
         }
     }

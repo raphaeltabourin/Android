@@ -96,8 +96,9 @@ class ContactActivity : AppCompatActivity() {
                         1 -> {
                             Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
                                 takePictureIntent.resolveActivity(packageManager)?.also {
-                                    startActivityForResult(takePictureIntent, 1001)
+                                    startActivityForResult(takePictureIntent, REQUEST_CODE_CAMERA)
                                 }
+
                             }
                         }
                     }
@@ -118,7 +119,7 @@ contact()
 
     companion object {
         private const val REQUEST_CODE_GALLERY = 73
-
+        private const val REQUEST_CODE_CAMERA = 88
 
     }
 

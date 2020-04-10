@@ -8,6 +8,8 @@ import android.bluetooth.le.ScanResult
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.LocationManager
+import android.location.LocationProvider
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -18,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.location.LocationRequest
 import kotlinx.android.synthetic.main.activity_b_l_e_scan.*
 import kotlin.collections.ArrayList
 
@@ -41,6 +44,7 @@ class BLEScanActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_b_l_e_scan)
         setupPermissions()
         scanButton.setOnClickListener {
@@ -57,6 +61,7 @@ class BLEScanActivity: AppCompatActivity() {
                     //ask for permission
                     val enableBTIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
                     startActivityForResult(enableBTIntent, REQUEST_ENABLE_BT)
+
                 }
                 else -> {
                     //device is not compatible with your device
@@ -79,7 +84,8 @@ class BLEScanActivity: AppCompatActivity() {
     private fun scanLeDevice(enable: Boolean) {
         bluetoothAdapter?.bluetoothLeScanner?.apply {
             if (enable) {
-                progressBar3.incrementProgressBy(11)
+                progressBar3.incrementProgressBy(19)
+                progressBar3.incrementSecondaryProgressBy(19)
 
                 Log.w("BLE", "Scanning for devices")
                 handler.postDelayed({
@@ -164,6 +170,7 @@ class BLEScanActivity: AppCompatActivity() {
                     .show()
             }
         }
+
     }
 
     override fun onStop() {

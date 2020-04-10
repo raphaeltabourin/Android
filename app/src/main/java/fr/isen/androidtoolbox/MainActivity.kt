@@ -35,12 +35,14 @@ class MainActivity : AppCompatActivity() {
 
                     val intent = Intent(this, HomeActivity::class.java) //f
                     startActivity(intent)
+
                     val editor = sharedPref.edit()
                   editor.putString(user, login.text.toString())
                     editor.apply()
                    editor.putString(Pw, password.text.toString())
 
                     editor.apply()
+                    finish()
 
                 } else
                     Toast.makeText(this, "autentification ratée", Toast.LENGTH_SHORT).show()

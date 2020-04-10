@@ -25,6 +25,7 @@ class HomeActivity : AppCompatActivity() {
            val editor=sharedPref.edit()
             editor.clear()
             editor.apply()
+            finish()
 
 
         }
@@ -36,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, BLEScanActivity::class.java) //f
             startActivity(intent)
         }
-            permissionBoutton.setOnClickListener() {
+        permissionBoutton.setOnClickListener() {
                 val intent = Intent(this, ContactActivity::class.java) //f
                 startActivity(intent)
             }

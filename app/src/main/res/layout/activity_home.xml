@@ -16,26 +16,27 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bonjour"
+        android:layout_width="178dp"
+        android:layout_height="82dp"
+        android:text="Bonjour, green is good !"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.159" />
+        app:layout_constraintVertical_bias="0.076" />
 
     <ImageView
         android:id="@+id/webServicesButton"
         android:layout_width="77dp"
         android:layout_height="77dp"
         android:layout_marginStart="72dp"
-        android:background="#FF0000"
+        android:background="#00FF0A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toEndOf="@+id/permissionBoutton"
         app:layout_constraintTop_toBottomOf="@+id/set"
         app:layout_constraintVertical_bias="0.291"
@@ -45,7 +46,7 @@
         android:id="@+id/cycleButton"
         android:layout_width="77dp"
         android:layout_height="77dp"
-        android:background="#F00000"
+        android:background="#00FF0A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.143"
@@ -72,7 +73,7 @@
         android:id="@+id/permissionBoutton"
         android:layout_width="77dp"
         android:layout_height="77dp"
-        android:background="#FF0000"
+        android:background="#00FF0D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.143"
@@ -99,7 +100,7 @@
         android:layout_width="77dp"
         android:layout_height="77dp"
         android:layout_marginTop="28dp"
-        android:background="#F00000"
+        android:background="#00FF0A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.846"
@@ -136,24 +137,28 @@
     <Button
         android:id="@+id/logout"
         style="@android:style/Widget.Material.Light.Button.Small"
-        android:layout_width="56dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="540dp"
+        android:layout_width="118dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="520dp"
         android:text="logout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/BLEButton"
-        android:layout_width="127dp"
-        android:layout_height="117dp"
+        android:layout_width="67dp"
+        android:layout_height="73dp"
         android:background="#FF0000"
         app:layout_constraintBottom_toTopOf="@+id/logout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.42"
         app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
